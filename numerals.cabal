@@ -1,0 +1,43 @@
+name:                numerals
+version:             0.1.0.0
+synopsis:            Converts numbers to roman numerals
+description:         Converts numbers to roman numerals
+homepage:            https://github.com/githubuser/numerals#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Gareth Rowlands
+maintainer:          garethjamesrowlands@gmail.com
+copyright:           2018 Gareth Rowlands
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Numerals
+  build-depends:       base >= 4.7 && < 5
+  default-language:    Haskell2010
+
+executable numerals
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , numerals
+  default-language:    Haskell2010
+
+test-suite numerals-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             NumeralsSpec.hs
+  build-depends:       base
+                     , numerals
+                     , hspec
+                     , QuickCheck
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/githubuser/numerals
